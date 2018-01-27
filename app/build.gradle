@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: "de.mannodermaus.android-junit5"
 
 android {
     compileSdkVersion 27
@@ -11,6 +12,7 @@ android {
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -20,14 +22,22 @@ android {
     }
 }
 
+android.testOptions {
+    junitPlatform {
+        filters {
+            engines {
+                include 'spek'
+            }
+        }
+    }
+}
+
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:27.0.2'
+    testImplementation 'junit:junit:4.12'
     testImplementation 'org.junit.platform:junit-platform-engine:1.0.3'
-    testImplementation 'org.junit.platform:junit-platform-runner:1.0.3'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.0.3'
-    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.0.3'
     testImplementation 'org.jetbrains.spek:spek-api:1.1.5'
     testImplementation 'org.jetbrains.spek:spek-junit-platform-engine:1.1.5'
 }
