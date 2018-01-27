@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
         applicationId "id.kotlin.training.spek"
         minSdkVersion 21
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
     }
@@ -23,11 +23,11 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-
-    testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+    testImplementation 'org.junit.platform:junit-platform-engine:1.0.3'
+    testImplementation 'org.junit.platform:junit-platform-runner:1.0.3'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.0.3'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.0.3'
     testImplementation 'org.jetbrains.spek:spek-api:1.1.5'
     testImplementation 'org.jetbrains.spek:spek-junit-platform-engine:1.1.5'
-    testImplementation 'org.junit.platform:junit-platform-runner:1.0.0'
 }
